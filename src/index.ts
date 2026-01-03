@@ -73,6 +73,7 @@ app.post('/helius', async(req, res) => {
                 // Stake their tokens and return them back the value of that token i.e. POL (PARASOL) spl tokens just like similar to mSOL or hSOL
                 const prevAmount = userMap[fromUserAccount] ? userMap[fromUserAccount].tokenAmount : 0;
                 amount = BigInt((amountSent * 1.5) * Math.pow(10, decimals));
+                console.log('amountSent=', amountSent, ' decimals=', decimals, ' final=', amount);
                 await mintTokens({connection, receiverPubKey, wallet, mintPubKey, amount});
 
                 const senderATA = getAssociatedTokenAddressSync(
