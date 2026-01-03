@@ -11,7 +11,7 @@ import { burnTokens, mintTokens, sendTokens } from './lib/utils.js';
 import { userMap } from './lib/db.js';
 const app = express();
 
-const PORT = 8080;
+const port = process.env.PORT || 8123;
 
 app.use(express.json());
 
@@ -118,4 +118,4 @@ app.post('/helius', async(req, res) => {
     }
 })
 
-app.listen(() => console.log(`Server started at PORT : ${PORT}`));
+app.listen(port, () => console.log(`Server started at PORT : ${port}`));
