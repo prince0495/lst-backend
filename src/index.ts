@@ -3,14 +3,12 @@
 // I am not using anchor rust to deply my own solana program (Smart Contract) so I am using node (centralized) to return the PARASOL token rewards for the users who stake LST.
 // I am using Helius free Webhook service to notify my backend that a new transaction has been made on the chain for my wallet.
 // You should probably use 3 - 5 different webhook providers to confirm that this transaction has been made on the chain, which i am not using for the simplicity purposes.
-import express, { json } from 'express';
-import dotenv from 'dotenv';
+import express from 'express';
 import { Connection, Keypair, PublicKey } from '@solana/web3.js';
-import { getAssociatedTokenAddressSync, getOrCreateAssociatedTokenAccount, mintTo, TOKEN_2022_PROGRAM_ID } from '@solana/spl-token';
+import { getAssociatedTokenAddressSync, TOKEN_2022_PROGRAM_ID } from '@solana/spl-token';
 import bs58 from 'bs58';
 import { burnTokens, mintTokens, sendTokens } from './lib/utils.js';
 import { userMap } from './lib/db.js';
-dotenv.config();
 const app = express();
 
 const PORT = 8080;
