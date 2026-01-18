@@ -9,9 +9,13 @@ import { getAssociatedTokenAddressSync, TOKEN_2022_PROGRAM_ID } from '@solana/sp
 import bs58 from 'bs58';
 import { burnTokens, mintTokens, sendTokens } from './lib/utils.js';
 import { userMap } from './lib/db.js';
+import cors from 'cors';
+
 const app = express();
 
 const port = process.env.PORT || 8123;
+
+app.use(cors());
 
 app.use(express.json());
 
