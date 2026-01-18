@@ -26,6 +26,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/helius', async(req, res) => {
+    res.status(200).json({ received: true });
     try {
         const tx = req.body[0];
         let amount: bigint;
