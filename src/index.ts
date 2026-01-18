@@ -26,9 +26,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/helius', async(req, res) => {
+    console.log('endpoint called');
     res.status(200).json({ received: true });
     try {
         const tx = req.body[0];
+        console.log('tx= ', tx);
         let amount: bigint;
         const decimals: number = Number(process.env.TOKEN_DECIMALS);
         const receiverPubKey = new PublicKey(tx.nativeTransfers[0].fromUserAccount);
